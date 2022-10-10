@@ -5,13 +5,14 @@ import MovieProfile from "./components/MovieProfile.component";
 import { moviesRequest } from "./services/movies.service";
 
 const Body = styled.div`
-  height:100vh
-  width:100vw;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #ffd700;
-  margin:0;
+  margin: 0;
+  font-family: "Helvetica", sans-serif;
 `;
 
 function App() {
