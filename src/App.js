@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import MovieProfile from "./components/MovieProfile.component";
 import { moviesRequest } from "./services/movies.service";
+import { updateMovies } from "./state/movies.slice";
 
 const Body = styled.div`
   height: 100vh;
@@ -22,7 +23,7 @@ function App() {
   useEffect(() => {
     moviesRequest()
       .then((data) => {
-        dispatch({ type: "UPDATE_MOVIES", payload: data });
+        dispatch(updateMovies(data));
       })
       .catch((err) => console.log(err));
   }, [dispatch]);
