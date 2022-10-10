@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import Stars from "./Stars.component";
 
 const MovieProfile = ({ movie }) => {
-  const dispatch = useDispatch();
   return (
     <div>
       <img src={movie.img} alt={movie.title} />
