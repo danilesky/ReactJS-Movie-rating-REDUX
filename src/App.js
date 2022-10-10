@@ -1,7 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import MovieProfile from "./components/MovieProfile.component";
 import { moviesRequest } from "./services/movies.service";
+
+const Body = styled.div`
+  height:100vh
+  width:100vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: #ffd700;
+  margin:0;
+`;
 
 function App() {
   const state = useSelector((state) => state);
@@ -15,9 +26,9 @@ function App() {
       .catch((err) => console.log(err));
   }, [dispatch]);
   return (
-    <div className="App">
+    <Body>
       {state.movies[0] ? <MovieProfile movie={state.movies[0]} /> : "No movies"}
-    </div>
+    </Body>
   );
 }
 
