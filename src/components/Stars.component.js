@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaRegStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { deleteMovie } from "../state/movies.slice";
+import { addRating } from "../state/ratings.slice";
 
 const Star = styled(FaRegStar)`
   font-size: 30px;
@@ -16,15 +18,9 @@ const Stars = ({ movie }) => {
   const hoverHandler = (index) => {
     setHover(index);
   };
-  const addRating = (rate) => {
-    dispatch({
-      type: "DELETE_MOVIE",
-      payload: movie,
-    });
-    dispatch({
-      type: "ADD_RATING",
-      payload: { ...movie, rating: rate },
-    });
+  const addNewRating = (rate) => {
+    dispatch(deleteMovie(movie));
+    dispatch(addRating({ ...movie, rating: rate }));
   };
   return (
     <div>
@@ -32,7 +28,7 @@ const Stars = ({ movie }) => {
         <Star
           onMouseEnter={() => hoverHandler(index)}
           theme={index <= hover ? { hovered: "red" } : ""}
-          onClick={() => addRating(index + 1)}
+          onClick={() => addNewRating(index + 1)}
           onMouseLeave={() => setHover(-1)}
         />
       ))}
