@@ -16,3 +16,7 @@ export const ratingSlice = createSlice({
     },
   },
 });
+
+export const { addRating } = ratingSlice.actions;
+
+export default ratingSlice.reducer;
